@@ -9,13 +9,17 @@ app.use(express.urlencoded());
 app.use(express.json());
 
 //require('./middlewares/passport')(app);
+const db = require('./models/config');
+db.connect();
+
+app.use('/Course', require('./controllers/CourseController'));
 
 app.get('/', (req, res) => {
     res.render('home',{
         title: 'Home page'
     });
 });
-
+ 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`);
 });
