@@ -11,7 +11,9 @@ app.use(express.json());
 //require('./middlewares/passport')(app);
 
 app.get('/', (req, res) => {
-    res.send('hello world');
+    res.render('home',{
+        title: 'Home page'
+    });
 });
 
 app.listen(port, () => {
