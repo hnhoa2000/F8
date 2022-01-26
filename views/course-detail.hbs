@@ -1,0 +1,25 @@
+<div class="mt-4">
+    <div class="row">
+        <div class="col-lg-3">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                    <p class="card-text">Bạn đã đăng kí khóa học này</p>
+                </div>
+                <div class="card-body text-center">
+                    <a href="#"><button class="btn btn-primary">Học Ngay</button></a>
+                </div>
+                <div class="card-body">
+                    <p class="card-text">Tổng số 25 khóa học</p>
+                    <p class="card-text">Trình độ trung bình</p>
+                    <p class="card-text">Cần 6.05 giờ để học</p>
+                    <p class="card-text">Truy cập mọi lúc mọi nơi</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-9">
+            <h2>{{course.name}}</h2>
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/{{course.videoId}}" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            <p>{{course.description}}</p>
+        </div>
+    </div>
+</div>

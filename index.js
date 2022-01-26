@@ -12,7 +12,7 @@ app.use(express.json());
 const db = require('./models/config');
 db.connect();
 
-app.use('/Course', require('./controllers/CourseController'));
+app.use('/Courses', require('./controllers/CourseController'));
 
 app.get('/', (req, res) => {
     res.render('home',{
