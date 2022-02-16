@@ -10,7 +10,7 @@ async function connect(){
         console.log('connect successly!!!!');
     } catch (error) {
         console.log(error);
-    }
+    }  
 }
 
 module.exports = { connect };
