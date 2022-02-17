@@ -48,6 +48,12 @@ router.put('/:id', (req, res) => {
     
 });
 
+router.delete('/:id',(req,res) => {
+    CourseModel.deleteOne({_id: req.params.id})
+        .then(() => res.redirect('back'))
+        .catch(err => coonsole.log(err))
+});
+
 router.get('/:slug', (req, res) => {
     CourseModel.findOne({slug : req.params.slug}).lean()
         .then(course => {

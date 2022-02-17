@@ -6,7 +6,7 @@ async function connect(){
     try {
         await mongose.connect(uri,{
             useNewUrlParser: true,
-            useUnifiedTopology: true
+            useUnifiedTopology: true,
         });
         console.log('connect successly!!!!');
     } catch (error) {
