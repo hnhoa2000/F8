@@ -1,4 +1,5 @@
 const express = require('express');
+const methodOverride = require('method-override');
 const app = express();
 const port = process.env.PORT || 3000;
 require('./middlewares/handlebars')(app);
@@ -8,16 +9,17 @@ app.use(express.static(__dirname + '/public'));
 app.use(express.urlencoded());
 app.use(express.json());
 
+app.use(methodOverride('_method'));
+
 //require('./middlewares/passport')(app);
 const db = require('./models/config');
 db.connect();
 
 app.use('/Courses', require('./controllers/CourseController'));
+app.use('/me', require('./controllers/meController'));
 
 app.get('/', (req, res) => {
-    res.render('home',{
-        title: 'Home page'
-    });
+    res.redirect('/Courses');
 });
  
 app.listen(port, () => {

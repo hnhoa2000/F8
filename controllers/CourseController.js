@@ -7,9 +7,9 @@ router.get('/', (req, res, next) => {
     CourseModel.find({}).lean() 
         .then(courses => {
             res.render('course/course',{
-                title: 'courses page',
+                title: 'Danh sách khóa học',
                 courses
-            })
+            });
         })
         .catch(next);
 });
@@ -26,6 +26,26 @@ router.post('/create', (req, res, next) => {
     const course = new CourseModel(dataCourse); 
     course.save();
     res.redirect('/Courses');
+});
+
+router.get('/:id/edit', (req, res) => {
+    CourseModel.findById(req.params.id).lean()
+        .then(course => {
+            res.render('course/edit',{
+                title: 'Chỉnh sửa khóa học',
+                course}
+            ); 
+        })
+        .catch(err => {
+            console.log(err);
+        });
+});
+
+router.put('/:id', (req, res) => {
+    CourseModel.updateOne({_id: req.params.id}, req.body)
+        .then(() => res.redirect('/me/stored/courses'))
+        .catch(err => console.log(err))
+    
 });
 
 router.get('/:slug', (req, res) => {
