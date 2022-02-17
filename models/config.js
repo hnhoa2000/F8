@@ -3,7 +3,7 @@ const mongose = require('mongoose');
 
 async function connect(){
     try {
-        await mongose.connect('mongodb://localhost:27017/f8_education_dev',{
+        await mongose.connect(process.env.MONGODB_URI||'mongodb://localhost:27017/f8_education_dev',{
             useNewUrlParser: true,
             useUnifiedTopology: true
         });
